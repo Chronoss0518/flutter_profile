@@ -129,7 +129,7 @@ class StartScene extends BaseScene {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const TextBlock("Use Program Lungage",textColor: Colors.white,fontSize: 40.0),
+                        const TextBlock("Use Program Language",textColor: Colors.white,fontSize: 40.0),
                         UseTable([
                           UseTablePanel("C",textColor: Colors.yellow),
                           UseTablePanel("C++",textColor: Colors.yellow),
