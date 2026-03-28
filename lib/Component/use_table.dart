@@ -29,7 +29,7 @@ class UseTable extends StatelessWidget
 
     for(int i = 0;i<panels.length;i++)
     {
-      row.add(TextBlock(panels[i].text,textColor: panels[i].textColor ?? defaultColor,fontSize: FONT_SIZE));
+      row.add(TextBlock(panels[i].text,textColor: panels[i].textColor ?? defaultColor,fontSize: FONT_SIZE,backGroundColor: Colors.grey,isSelect: true,));
 
       if((i + 1) % ROW_COUNT != 0)continue;
 

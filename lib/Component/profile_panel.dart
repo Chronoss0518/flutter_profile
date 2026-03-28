@@ -38,7 +38,7 @@ class ProfilePanelList extends StatelessWidget
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextBlock(panels[i]._parameterName,textColor: panels[i].textColor,fontSize: PARAMETER_NAME_FONT_SIZE),
-            TextBlock(panels[i]._parameterValue,textColor: panels[i].textColor,fontSize: fontSize,margin: const EdgeInsets.only(left:PARAMETER_VALUE_MARGIN_SIZE),),
+            TextBlock(panels[i]._parameterValue,textColor: panels[i].textColor,backGroundColor: Colors.grey,fontSize: fontSize,margin: const EdgeInsets.only(left:PARAMETER_VALUE_MARGIN_SIZE),isSelect: true,),
           ],
         )
       );
