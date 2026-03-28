@@ -1,7 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:ch_flutter_library/widget/components/image_some_drawer.dart';
-import 'package:ch_flutter_library/widget/scene_manager.dart';
 import 'Component/profile_panel.dart';
 import 'Component/text_block.dart';
 import 'Component/use_table.dart';
@@ -12,6 +10,7 @@ const CREATER_TYPE = "Game Creater";
 
 const TWITTER_USER_URL = "@__ChWorld__";
 const BLUESKY_USER_URL = "@chworld.bsky.social";
+const GITHUB_USER_URL = "https://github.com/Chronoss0518";
 const FREEGAME_MUGEN_USER_URL = "https://freegame-mugen.jp/cms/mt-cp.cgi?__mode=view&blog_id=1&id=9366";
 const FREEM_USER_URL = "https://www.freem.ne.jp/brand/14403";
 
@@ -33,59 +32,25 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SceneManager(StartScene()),
+      home: const StartWidget(),
     );
   }
 }
 
-class StartScene extends BaseScene {
-  ImageSomeDrawerController controller = ImageSomeDrawerController();
-  
-  @override
-  void init({SaveData? sendData}) {
-    /*
-    setAppBar(AppBar(
-      backgroundColor: Theme.of(context!).colorScheme.inversePrimary,
-      title: const Center(child: Text("Profile")),
-    ));
-    */
-
-    repaint(() {});
-    
-  }
-
-  int testNumber = 0;
+class StartWidget extends StatefulWidget
+{
+  const StartWidget({super.key});
 
   @override
-  void update() {
-    if(testNumber == 0)
-    {
-      //controller.drawLeft = (controller.drawLeft - 100) % controller.baseHeight;
-      //controller.drawTop = (controller.drawTop - 100) % controller.baseHeight;
-    }
-    controller.update();
-    repaint(() {
-      tmpUpdate();
-    });
-  }
+  State<StatefulWidget> createState() => _State();
+}
 
-  @override
-  void release() {}
-
-  void tmpUpdate() {
-    testNumber++;
-    testNumber %= 100;
-  }
+class _State extends State<StartWidget>
+{
 
   @override
   Widget build(BuildContext context) {
-    
-    controller.drawLeft = 170 % controller.baseHeight;
-    controller.drawTop = 0 % controller.baseHeight;
 
-    var size = MediaQuery.of(context).size;
-    double width = size.width / 4; 
-    double height = size.height / 10; 
     return Container(
       color: Colors.black,
       //padding: EdgeInsets.fromLTRB(width, height, width, height),
@@ -98,13 +63,11 @@ class StartScene extends BaseScene {
               color: Colors.black,
               child: Row(
                 children: [
-                  const TextBlock("Profile",textColor: Colors.white,fontSize: 80.0),
-                  ImageSomeDrawer("resource/image/test_image.png",
-                    controller,
+                  Container(
+                    decoration: const BoxDecoration(image :DecorationImage(image: AssetImage("resource/image/test_image.png"))),
                     width: 150,
-                    height:150,
-                    imageWidth: 500,
-                    imageHeight:500,),
+                    height:150,),
+                  const TextBlock("Profile",textColor: Colors.white,fontSize: 80.0),
                 ],
               ),
             ),
@@ -153,6 +116,7 @@ class StartScene extends BaseScene {
                 [
                   ProfilePanel("twitter(x)", TWITTER_USER_URL,textColor: Colors.white),
                   ProfilePanel("bluesky", BLUESKY_USER_URL,textColor: Colors.blue),
+                  ProfilePanel("github", GITHUB_USER_URL,textColor: Colors.white),
                   ProfilePanel("freem", FREEM_USER_URL,textColor: Colors.yellow),
                   ProfilePanel("freegame-mugen", FREEGAME_MUGEN_USER_URL,textColor: Colors.yellow),
                 ],
