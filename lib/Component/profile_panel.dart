@@ -38,7 +38,7 @@ class ProfilePanelList extends StatelessWidget
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextBlock(panels[i]._parameterName,textColor: panels[i].textColor,fontSize: PARAMETER_NAME_FONT_SIZE),
-            TextBlock(panels[i]._parameterValue,textColor: panels[i].textColor,backGroundColor: Colors.grey,fontSize: fontSize,margin: const EdgeInsets.only(left:PARAMETER_VALUE_MARGIN_SIZE),isSelect: true,),
+            TextBlock(panels[i]._parameterValue,textColor: panels[i].textColor,fontSize: fontSize,margin: const EdgeInsets.only(left:PARAMETER_VALUE_MARGIN_SIZE),isSelect: true,),
           ],
         )
       );
@@ -49,26 +49,5 @@ class ProfilePanelList extends StatelessWidget
       crossAxisAlignment: CrossAxisAlignment.start,
       children: drawPanels,
     );
-    /*
-    var drawPanels = <TableRow>[];
-    for(int i = 0;i<panels.length;i++)
-    {
-      drawPanels.add(
-        TableRow(
-          children: [
-            TextBlock(panels[i]._parameterName,textColor: panels[i].textColor,fontSize: FONT_SIZE),
-            TextBlock(":" + panels[i]._parameterValue,textColor: panels[i].textColor,fontSize: FONT_SIZE),
-          ],
-        )
-      );
-    }
-
-    return Table(
-      defaultColumnWidth: FixedColumnWidth(260),
-                //mainAxisAlignment: MainAxisAlignment.center,
-                //crossAxisAlignment: CrossAxisAlignment.start,
-                children: drawPanels,
-                );
-      */
   }
 }
